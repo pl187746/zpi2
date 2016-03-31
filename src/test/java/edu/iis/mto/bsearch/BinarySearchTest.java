@@ -7,57 +7,58 @@ import org.junit.Test;
 
 public class BinarySearchTest {
 	
+	static final int elem = 42;
+	
 	@Test
-	public void jestWSekwencji1() {
-		int elem = 42;
+	public void wyszukajIstniejacyElementWSekwencjiJednoelementowej() {
 		int seq[] = { elem };
 		SearchResult res = BinarySearch.search(elem, seq);
-		assertThat(res.isFound(), is(true));
-		assertThat(res.getPosition(), is(0));
+		assertFound(res, seq);
 	}
 	
 	@Test
-	public void nieMaWSekwencji1() {
+	public void wyszukajNieistniejacyElementWSekwencjiJednoelementowej() {
 		int seq[] = { 123 };
-		SearchResult res = BinarySearch.search(456, seq);
-		assertThat(res.isFound(), is(false));
-		assertThat(res.getPosition(), is(-1));
+		SearchResult res = BinarySearch.search(elem, seq);
+		assertNotFound(res);
 	}
 	
 	@Test
-	public void jestPierwszyWDlugiejSekwencji() {
-		int elem = 42;
+	public void wyszukajElementIstniejacyJakoPierwszyWSekwencjiWieloelementowej() {
 		int seq[] = { elem, 100, 200, 300 };
 		SearchResult res = BinarySearch.search(elem, seq);
-		assertThat(res.isFound(), is(true));
-		assertThat(res.getPosition(), is(0));
+		assertFound(res, seq);
 	}
 	
 	@Test
-	public void jestOstatniWDlugiejSekwencji() {
-		int elem = 42;
+	public void wyszukajElementIstniejacyJakoOstatniWSekwencjiWieloelementowej() {
 		int seq[] = { 1, 2, 3, elem };
 		SearchResult res = BinarySearch.search(elem, seq);
-		assertThat(res.isFound(), is(true));
-		assertThat(res.getPosition(), is(seq.length - 1));
+		assertFound(res, seq);
 	}
 	
 	@Test
-	public void jestWSrodkuDlugiejSekwencji() {
-		int elem = 42;
+	public void wyszukajElementIstniejacyWSrodkuSekwencjiWieloelementowej() {
 		int seq[] = { 1, 2, 3, elem, 100, 200, 300 };
 		SearchResult res = BinarySearch.search(elem, seq);
-		assertThat(res.isFound(), is(true));
-		assertThat(seq[res.getPosition()], is(elem));
+		assertFound(res, seq);
 	}
 	
 	@Test
-	public void nieMaWDlugiejSekwencji() {
-		int elem = 42;
+	public void wyszukajNieistniejacyElementWSekwencjiWieloelementowej() {
 		int seq[] = { 1, 2, 3, 100, 200, 300 };
 		SearchResult res = BinarySearch.search(elem, seq);
+		assertNotFound(res);
+	}
+	
+	void assertNotFound(SearchResult res) {
 		assertThat(res.isFound(), is(false));
 		assertThat(res.getPosition(), is(-1));
+	}
+	
+	void assertFound(SearchResult res, int[] seq) {
+		assertThat(res.isFound(), is(true));
+		assertThat(seq[res.getPosition()], is(elem));
 	}
 
 }
