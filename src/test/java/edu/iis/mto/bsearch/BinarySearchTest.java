@@ -15,5 +15,13 @@ public class BinarySearchTest {
 		assertThat(res.isFound(), is(true));
 		assertThat(res.getPosition(), is(0));
 	}
+	
+	@Test
+	public void nieMaWSekwencji1() {
+		int seq[] = { 123 };
+		SearchResult res = BinarySearch.search(456, seq);
+		assertThat(res.isFound(), is(false));
+		assertThat(res.getPosition(), is(-1));
+	}
 
 }
