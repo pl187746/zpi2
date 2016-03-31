@@ -50,5 +50,14 @@ public class BinarySearchTest {
 		assertThat(res.isFound(), is(true));
 		assertThat(seq[res.getPosition()], is(elem));
 	}
+	
+	@Test
+	public void nieMaWDlugiejSekwencji() {
+		int elem = 42;
+		int seq[] = { 1, 2, 3, 100, 200, 300 };
+		SearchResult res = BinarySearch.search(elem, seq);
+		assertThat(res.isFound(), is(false));
+		assertThat(res.getPosition(), is(-1));
+	}
 
 }
