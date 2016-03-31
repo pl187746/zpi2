@@ -60,5 +60,11 @@ public class BinarySearchTest {
 		assertThat(res.isFound(), is(true));
 		assertThat(seq[res.getPosition()], is(elem));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void wyszukajWPustejSekwencji() {
+		int seq[] = {};
+		BinarySearch.search(elem, seq);
+	}
 
 }
