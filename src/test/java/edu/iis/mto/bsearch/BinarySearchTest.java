@@ -23,5 +23,14 @@ public class BinarySearchTest {
 		assertThat(res.isFound(), is(false));
 		assertThat(res.getPosition(), is(-1));
 	}
+	
+	@Test
+	public void jestPierwszyWDlugiejSekwencji() {
+		int elem = 42;
+		int seq[] = { elem, 100, 200, 300 };
+		SearchResult res = BinarySearch.search(elem, seq);
+		assertThat(res.isFound(), is(true));
+		assertThat(res.getPosition(), is(0));
+	}
 
 }
