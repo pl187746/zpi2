@@ -41,5 +41,14 @@ public class BinarySearchTest {
 		assertThat(res.isFound(), is(true));
 		assertThat(res.getPosition(), is(seq.length - 1));
 	}
+	
+	@Test
+	public void jestWSrodkuDlugiejSekwencji() {
+		int elem = 42;
+		int seq[] = { 1, 2, 3, elem, 100, 200, 300 };
+		SearchResult res = BinarySearch.search(elem, seq);
+		assertThat(res.isFound(), is(true));
+		assertThat(seq[res.getPosition()], is(elem));
+	}
 
 }
