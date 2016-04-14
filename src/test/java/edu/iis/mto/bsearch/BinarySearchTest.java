@@ -66,5 +66,12 @@ public class BinarySearchTest {
 		int seq[] = {};
 		BinarySearch.search(elem, seq);
 	}
+	
+	@Test
+	public void nieZnajdzieElementuWNieposortowanejSekwencji() {
+		int seq[] = { 5, 4, 3, 2, 1 };
+		SearchResult result = BinarySearch.search(4, seq);
+		assertThat(result.isFound(), is(false));
+	}
 
 }
