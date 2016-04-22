@@ -77,7 +77,7 @@ public class BinarySearchTest {
 	@Test
 	public void nibyTest() {
 		// zeby byla zmiana w repo
-		int r = 2;
+		int r = 3;
 		assertThat(r, is(r));
 	}
 
