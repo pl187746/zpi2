@@ -73,5 +73,12 @@ public class BinarySearchTest {
 		SearchResult result = BinarySearch.search(4, seq);
 		assertThat(result.isFound(), is(false));
 	}
+	
+	@Test
+	public void nibyTest() {
+		// zeby byla zmiana w repo
+		int r = 1;
+		assertThat(r, is(r));
+	}
 
 }
