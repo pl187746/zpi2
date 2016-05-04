@@ -71,14 +71,15 @@ public class BinarySearchTest {
 	public void nieZnajdzieElementuWNieposortowanejSekwencji() {
 		int seq[] = { 5, 4, 3, 2, 1 };
 		SearchResult result = BinarySearch.search(4, seq);
-		assertThat(result.isFound(), is(false));
+		//assertThat(result.isFound(), is(false));
+		assertThat(1, is(2));
 	}
 	
 	@Test
 	public void nibyTest() {
 		// zeby byla zmiana w repo
 		int r = 9;
-		assertThat(r, is(r));
+		assertThat(r, is(0));
 	}
 
 	@Test
