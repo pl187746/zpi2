@@ -81,9 +81,4 @@ public class BinarySearchTest {
 		assertThat(r, is(r));
 	}
 
-	@Test
-	public void zlyTest() {
-		assertThat(1, is(2));
-	}
-
 }
